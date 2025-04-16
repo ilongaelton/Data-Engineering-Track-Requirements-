@@ -1,0 +1,96 @@
+{
+  "script": {
+    "imports": [
+      "pandas as pd",
+      "requests"
+    ],
+    "csv_path": "C:\\New folder\\Points_of_Interest (1).csv",
+    "functions": [
+      {
+        "name": "get_yelp_data",
+        "description": "Function to extract Yelp business data using Yelp API",
+        "parameters": [
+          {
+            "name": "business_name",
+            "type": "str",
+            "description": "The name of the business to search for."
+          },
+          {
+            "name": "location",
+            "type": "str",
+            "description": "The location of the business to search in."
+          }
+        ],
+        "api_details": {
+          "base_url": "https://api.yelp.com/v3/businesses/search",
+          "headers": {
+            "Authorization": "Bearer YOUR_YELP_API_KEY"
+          },
+          "query_parameters": {
+            "term": "business_name",
+            "location": "location"
+          }
+        },
+        "response_format": "JSON",
+        "output": {
+          "example_response": {
+            "businesses": [
+              {
+                "id": "business_id",
+                "name": "Example Restaurant",
+                "rating": 4.5,
+                "location": {
+                  "address1": "123 Main St",
+                  "city": "Columbus",
+                  "state": "OH",
+                  "zip_code": "43201"
+                },
+                "phone": "+1 123-456-7890",
+                "categories": [
+                  {
+                    "title": "Restaurant"
+                  }
+                ],
+                "price": "$$$",
+                "url": "https://www.yelp.com/biz/example-restaurant-columbus"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "example_usage": {
+      "csv_data": {
+        "example_row": {
+          "Business Name": "Example Business",
+          "Category": "Restaurant",
+          "Location": "Columbus, OH",
+          "Phone": "+1 234-567-8901"
+        }
+      },
+      "yelp_data": {
+        "businesses": [
+          {
+            "id": "business_id",
+            "name": "Example Restaurant",
+            "rating": 4.5,
+            "location": {
+              "address1": "123 Main St",
+              "city": "Columbus",
+              "state": "OH",
+              "zip_code": "43201"
+            },
+            "phone": "+1 123-456-7890",
+            "categories": [
+              {
+                "title": "Restaurant"
+              }
+            ],
+            "price": "$$$",
+            "url": "https://www.yelp.com/biz/example-restaurant-columbus"
+          }
+        ]
+      }
+    }
+  }
+}
